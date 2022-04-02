@@ -1,0 +1,119 @@
+#############################################################
+#
+# web访问端口号 约定：9201
+#
+############################################################
+server:
+  port: 9201
+  tomcat:
+    uri-encoding: UTF-8
+  max-http-header-size: 80KB #最大接受80kB
+############################################################
+#
+# 应用配置
+#
+############################################################
+spring:
+  application:
+    # 应用名称
+    name: ks-system
+  profiles:
+    # 默认环境配置
+    active: dev
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 120.24.251.171:8848
+  jackson: #美化浏览器json配置
+    serialization:
+      indent_output: true
+############################################################
+#
+# 配置数据源信息
+#
+############################################################
+  datasource: # 数据源的相关配置
+    type: com.zaxxer.hikari.HikariDataSource # 数据源类型：HikariCP
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql驱动 >=6.x使用带cj的驱动
+    url: jdbc:mysql://127.0.0.1:3306/ks?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: p@ssw0rd
+    hikari:
+      connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQ
+      minimum-idle: 5 # 最小连接数
+      maximum-pool-size: 20 # 最大连接数
+      auto-commit: true # 自动提交
+      idle-timeout: 600000 # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+      pool-name: DateSourceHikariCP # 连接池名字
+      max-lifetime: 1800000 # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟
+      connection-test-query: SELECT 1
+  # redis 配置
+  redis:
+    # 地址
+    host: 120.24.251.171
+    # 端口，默认为6379
+    port: 6379
+    # 数据库索引
+    database: 0
+    # 密码
+    password: Ks123456
+    # 连接超时时间
+    timeout: 10s
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接
+        min-idle: 0
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池的最大数据库连接数
+        max-active: 8
+        # #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+############################################################
+#
+# mybatis-plus 配置
+#
+############################################################
+mybatis-plus:
+  type-aliases-package: com.ihealthink.ks.system.pojo # 所有POJO类所在包路径
+  mapper-locations: classpath:mapper/*.xml # mapper映射文件
+  configuration: #控制台打印sql的配置
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:  # mybatis-plus的全局配置
+    db-config:
+      id-type: id_worker
+#      table-prefix:
+
+############################################################
+#
+# actuator 监控 健康检查配置
+#常用/health  /configprops
+############################################################
+management:
+  endpoint:
+    health:
+      show-details: always
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+############################################################
+#
+# feign的细节配置
+#ribbon: 开启饥饿配置，防止第一次加载慢
+############################################################
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 600000
+      engine-server:   #其他微服务的名称
+       loggerLevel: full #开发环境，生产环境使用BASIC
+ribbon:
+  eager-load:
+    enabled: true
+    clients: ks-system  # 为哪些服务配置饥饿加载
