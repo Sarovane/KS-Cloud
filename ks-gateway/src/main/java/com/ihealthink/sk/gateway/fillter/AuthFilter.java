@@ -1,26 +1,19 @@
 package com.ihealthink.sk.gateway.fillter;
 
 
-import com.ihealthink.ks.common.constant.CacheConstants;
-import com.ihealthink.ks.common.constant.HttpStatus;
-import com.ihealthink.ks.common.constant.SecurityConstants;
-import com.ihealthink.ks.common.constant.TokenConstants;
-import com.ihealthink.ks.common.utils.JwtUtils;
-import com.ihealthink.ks.common.utils.ServletUtils;
-import com.ihealthink.ks.common.utils.StringUtils;
+import com.ihealthink.ks.core.constant.CacheConstants;
+import com.ihealthink.ks.core.constant.HttpStatus;
+import com.ihealthink.ks.core.constant.TokenConstants;
+import com.ihealthink.ks.core.utils.ServletUtils;
+import com.ihealthink.ks.core.utils.StringUtils;
 import com.ihealthink.sk.gateway.common.RedisService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.gateway.filter.GlobalFilter;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 全局拦截器-登录校验拦截
