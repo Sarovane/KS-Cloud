@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.ihealthink.ks.common.utils.SpringUtils
-  com.ihealthink.ks.common.redis.RedisConfig,\
-  com.ihealthink.ks.common.redis.RedisService
-  

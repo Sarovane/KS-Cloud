@@ -1,7 +1,7 @@
 package com.ihealthink.ks.system.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.ihealthink.ks.common.web.domain.BaseEntity;
+import com.ihealthink.ks.core.web.domain.BaseEntity;
 import lombok.Data;
 
 @Data

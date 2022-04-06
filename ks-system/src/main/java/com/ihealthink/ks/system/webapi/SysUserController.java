@@ -1,8 +1,8 @@
 package com.ihealthink.ks.system.webapi;
 
 
-import com.ihealthink.ks.common.web.controller.BaseController;
-import com.ihealthink.ks.system.common.RedisService;
+import com.ihealthink.ks.common.redis.service.RedisService;
+import com.ihealthink.ks.core.web.controller.BaseController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

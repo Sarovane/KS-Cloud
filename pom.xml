@@ -20,7 +20,6 @@
     <packaging>pom</packaging>
     <properties>
         <ks.version>1.0-SNAPSHOT</ks.version>
-        <ks-common.version>1.0-SNAPSHOT</ks-common.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -194,10 +193,22 @@
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
             </dependency>
+            <!--redisson  链接包   -->
             <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson-spring-boot-starter.version}</version>
+            </dependency>
+            <!-- 核心模块 -->
+            <dependency>
+                <groupId>com.ihealthink</groupId>
+                <artifactId>ks-common-core</artifactId>
+                <version>${ks.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ihealthink</groupId>
+                <artifactId>ks-common-redis</artifactId>
+                <version>${ks.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
