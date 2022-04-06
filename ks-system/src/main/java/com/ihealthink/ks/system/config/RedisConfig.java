@@ -16,12 +16,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport {
 
-//    @Value("${spring.redis.host}")
-//    private String redisUrl;
-//
-//    @Value("${spring.redis.port}")
-//    private String port;
-
 
     @Bean
     @SuppressWarnings(value = {"unchecked", "rawtypes"})
@@ -48,11 +42,4 @@ public class RedisConfig extends CachingConfigurerSupport {
         return template;
     }
 
-//    @Bean
-//    public RedissonClient registerRedisson() {
-//        Config singleServerConfig = new Config();
-//        singleServerConfig.useSingleServer().setAddress("redis://" + redisUrl + ":" + port)
-//                .setPassword("Ks123456");
-//        return Redisson.create(singleServerConfig);
-//    }
 }

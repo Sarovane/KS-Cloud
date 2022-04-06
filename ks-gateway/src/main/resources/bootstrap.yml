@@ -2,7 +2,7 @@
 server:
   port: 8080
 # Spring
-spring: 
+spring:
   application:
     # 应用名称
     name: ks-gateway
@@ -22,9 +22,35 @@ spring:
         # 共享配置
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-#    sentinel:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #gateway通过服务发现组件找到其他微服务
+  # redis 配置
+  redis:
+    # 地址
+    host: 120.24.251.171
+    # 端口，默认为6379
+    port: 6379
+    # 数据库索引
+    database: 0
+    # 密码
+    password: Ks123456
+    # 连接超时时间
+    timeout: 10s
+############################################################
+#
+# actuator 监控 健康检查配置
+#常用/health  /configprops
+############################################################
+management:
+  endpoint:
+    health:
+      show-details: always
+  #    sentinel:
 #      # 取消控制台懒加载
 #      eager: true
 #      transport:
 #        # 控制台地址
 #        dashboard: 127.0.0.1:8718
+

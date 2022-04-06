@@ -1,4 +1,4 @@
-package com.ihealthink.ks.system.common;
+package com.ihealthink.sk.gateway.common;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

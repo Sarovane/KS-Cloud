@@ -31,9 +31,8 @@
         <alibaba.nacos.version>1.2.1</alibaba.nacos.version>
         <spring-boot-admin.version>2.6.3</spring-boot-admin.version>
         <spring-boot.mybatis>2.2.2</spring-boot.mybatis>
-        <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
-        <springfox-swagger-ui.version>2.7.0</springfox-swagger-ui.version>
-        <swagger-bootstrap-ui.version>1.6</swagger-bootstrap-ui.version>
+        <knife4j.version>3.0.1</knife4j.version>
+        <knife4j-micro.version>3.0.1</knife4j-micro.version>
         <mybatis-plus-boot-starter.version>3.4.2</mybatis-plus-boot-starter.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <pagehelper.boot.version>1.4.1</pagehelper.boot.version>
@@ -107,22 +106,26 @@
                 <version>${spring-boot.mybatis}</version>
             </dependency>
 
-            <!-- swagger2 配置 -->
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger2</artifactId>
-                <version>${springfox-swagger2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-swagger-ui</artifactId>
-                <version>${springfox-swagger-ui.version}</version>
-            </dependency>
+            <!--swagger-->
+            <!--  knife4j 文档  -->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
-                <artifactId>swagger-bootstrap-ui</artifactId>
-                <version>${swagger-bootstrap-ui.version}</version>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
+            <!--  服务集合 knife4j-micro   -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j-micro.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+
+
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>

@@ -23,15 +23,14 @@ import java.util.Map;
 @Api(value = "用戶管理", tags = {"查询用户列表请求"})
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-@RequestMapping("/user")
+@RequestMapping("user")
 public class SysUserController extends BaseController {
 
 
     @Autowired
     private final RedisService redisService;
 
-    //    private final EngineFlowInstanceService engineFlowInstanceService;
-//
+
     @ApiOperation(value = "获取用户信息", notes = "根据条件查询用户信息列表", httpMethod = "GET")
     @GetMapping(value = "/list")
     public Map<String, Object> queryFlowInstanceList() {
