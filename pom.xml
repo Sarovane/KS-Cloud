@@ -205,10 +205,12 @@
                 <artifactId>ks-common-core</artifactId>
                 <version>${ks.version}</version>
             </dependency>
+            <!-- 公共redis依赖-->
             <dependency>
                 <groupId>com.ihealthink</groupId>
                 <artifactId>ks-common-redis</artifactId>
                 <version>${ks.version}</version>
+                 <!-- todo  公共文件上传依赖-->
             </dependency>
         </dependencies>
     </dependencyManagement>
